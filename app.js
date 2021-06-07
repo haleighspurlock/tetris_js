@@ -4,6 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const ScoreDisplay = document.querySelector('#score')
     const StartBtn = document.querySelector('#start-button')
     const width = 10
+    let nextRandom = 0
+    let timerId
+    let score = 0
+    const colors = [
+        'orange',
+        'red',
+        'purple',
+        'green',
+        'blue'
+    ]
 
     //The Tetrominoes
     const lTetromino = [
@@ -53,15 +63,15 @@ document.addEventListener('DOMContentLoaded', () => {
       function draw() {
           current.forEach(index => {
               squares[currentPosition + index].classList.add('tetromino')
+              squares[currentPosition + index].style.backgroundColor = colors[random]
           })
       }
 
       function undraw(){
           current.forEach(index => {
               squares[currentPosition + index].classList.remove('tetromino')
+              squares[currentPosition + index].style.backgroundColor = ''
           })
       }
-
-      timerId =
 
 })
