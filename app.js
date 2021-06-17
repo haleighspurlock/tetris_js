@@ -141,6 +141,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function rotate() {
-
+      undraw()
+      currentRotation ++
+      if(currentRotation === current.length) { //if current rotation gets to 4, make it go back to 0
+        currentRotation = 0
+      }
+      current = theTetrominoes[random][currentRotation]
+      checkRotatedPosition()
+      draw()
     }
+
+    const displaySquares = document.querySelectorAll(.'mini-grid div')
+    const displayWidth = 4
+    const displayIndex = 0
+
+    
+    const upNextTetrominoes = [
+      [1, displayWidth+1, displayWidth*2+1, 2], //lTetromino
+      [0, displayWidth, displayWidth+1, displayWidth*2+1], //zTetromino
+      [1, displayWidth, displayWidth+1, displayWidth+2], //tTetromino
+      [0, 1, displayWidth, displayWidth+1], //oTetromino
+      [1, displayWidth+1, displayWidth*2+1, displayWidth*3+1] //iTetromino
+    ]
+
+
 })
