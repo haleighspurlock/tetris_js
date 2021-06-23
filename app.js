@@ -174,6 +174,17 @@ document.addEventListener('DOMContentLoaded', () => {
         displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom]
       })
     }
-
     
+    startBtn.addEventListener('click', () => {
+      if (timerId) {
+        clearInterval(timerId)
+        timerId = null
+      } else {
+        draw()
+        timerId = setInterval(moveDown, 1000)
+        nextRandom = Math.floor(Math.random()*theTetrominoes.length)
+        displayShape()
+      }
+    })
+
 })
